@@ -1,7 +1,6 @@
 \input{100pre}
 \newcommand{\command}[1]{``\lstinline{#1}''}
 \newcommand{\program}[1]{\lstinline{#1}}
-%\newcommand{\url}[1]{\lstinline{#1}}
 \newcommand{\channel}[1]{\lstinline{#1}}
 \newcommand{\option}[1]{``{#1}''}
 \newcommand{\step}[1]{``{#1}''}
@@ -12,14 +11,92 @@
 \begin{document}
 \MYTITLE{Practical 1 \\ 30 August 2019 \\ Due  by midnight of the day of your practical \\ ``Checkmark'' grade}
 
-%\vspace*{-.2in}
 \subsection*{Summary}
-%\vspace*{-.05in}
 To learn how to set up a container-based platform, called Docker, for use in all class activities, labs and practicals. To configure Github and Github Classroom and a text editor called, Atom, for use in the class. To continue to practice using Slack to support communication with the technical leaders and the course instructor.
 
-\vspace*{-.2in}
-\subsection*{Configuring Git and GitHub}
-\vspace*{-.1in}
+\subsection*{1. Using a Container-based Platform, Docker}
+
+Docker is a platform for developers and system administrators to develop, deploy, and run software applications with containers. Docker is a new generation of virtualisation and it is revolutionizing the IT industry. Using Docker software developers no longer need to worry about installations and software versions on various operating systems their product may need to run on. All the necessary software is packaged into a container and software applications are run in it. Companies, such as Visa and PayPal, and universities, such as Cornell and Indiana University, have adopted the Docker platform since it simplifies the process of building, running, managing and distributing software applications. 
+
+\noindent The Department of Computer Science has adopted Docker in all computer science courses. The instructor in this course will deploy Docker containers with all the necessary software to run all class exercises, lab and practical assignments. Students will then be able to work on developing programs on their own machines and run them using instructor-provided Docker container without having to install a dozen of software languages and tools. Before being able to use Docker, students must first complete basic installations of Docker and Git, which will be used for code distribution and submission. These installations are specific to the operating system of your machine. 
+
+\begin{enumerate}
+	\item As the first step of the Docker set up process, please check and make a note of the version of your operating system. If your laptop meets the requirements outlined below, then proceed to the next step. For older MacOS and Windows Operating Systems, including Windows 10 Home, see the next section (1.1) about Docker ToolBox.
+ \\
+ 
+ \textbf{Docker Desktop Specifications} \\
+ Mac: 
+ 	\begin{itemize}
+ 		\item 2010 model or newer with hardware support for MMU, EPT, and Unrestricted Mode
+ 		\item macOS Sierra 10.12 or newer
+ 		\item 4 GB of RAM
+ 		\item VirtualBox prior to version 4.3.30 cannot be installed
+	\end{itemize}
+Windows: 
+ 	\begin{itemize}
+		\item Windows 10 64bit Pro, Enterprise, or Education (Build 15063 or later)
+		\item Virtualization is enabled in BIOS
+		\item CPU SLAT-capable feature
+		\item 4 GB of RAM
+	\end{itemize}
+Linux: 
+ 	\begin{itemize}
+		\item 64bit
+		\item Kernel 3.10 or later
+	\end{itemize}
+	\item Now, go to \url{https://docs.docker.com/install/} and  from the menu on the left-hand side select and follow the installation tutorial for your operating system (Linux, MacOS, or Windows). For example, if you have  
+ MacOS you can find installation guide on \url{https://docs.docker.com/docker-for-mac/install/}, if you have Windows operating system on \url{ (https://docs.docker.com/docker-for-windows/install/} and for Linux you can proceed to \url{https://docs.docker.com/install/linux/docker-ce/binaries/)}. 
+ 
+ Please note that the Docker Desktop for Mac and Windows requires you to create an account to download. To bypass this, use the following download links:
+	\begin{itemize}
+		\item Windows: \url{ https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe}
+		\item Mac: \url{ https://download.docker.com/mac/stable/Docker.dmg}
+	\end{itemize}
+	\item In this class we will use a command-line interface, which allows the user to interact with the computer by typing in commands in a ``terminal'' window. Computing professionals prefer to use the command line interface, built into operating systems like Linux, instead of using the graphical user interface. In many situations command line interface tends to be very efficient and effective, for example, it allows you to complete some tasks with a simple one line command instead of using the ``pumping'' motion of the mouse!
+	
+	Once your docker installation is complete, please locate a terminal window on your machine. In MacOS and Linux, you can search for a ``terminal'' and on Windows machines look for ``cmd'' (command prompt). If you are using Windows, we recommend using a Linux-based terminal, a step that you will complete when installing Git in Section 2, step 2. 
+	
+	Now in the terminal window type {\tt docker run hello-world} command and press ``Enter''. If you see an output similar to the one below, feel free to high five a technical leader - your docker set up was successful!
+	
+	
+
+\begin{verbatim}	
+docker run hello-world
+
+docker : Unable to find image 'hello-world:latest' locally
+...
+
+latest:
+Pulling from library/hello-world
+ca4f61b1923c:
+Pulling fs layer
+ca4f61b1923c:
+Download complete
+ca4f61b1923c:
+Pull complete
+Digest: sha256:97ce6fa4b6cdc0790cda65fe7290b74cfebd9fa0c9b8c38e979330d547d22ce1
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+...
+\end{verbatim}
+
+\end{enumerate}
+
+	
+\subsubsection*{1.1. Docker Toolbox for older Mac and Windows systems}
+Older Mac and Windows operating systems, such as Windows Home, that do not meet the requirements of Docker Desktop for Mac and Docker Desktop for Windows can use Docker Toolbox. You can follow the tutorial on \url{docs.docker.com/toolbox/toolbox_install_windows/}, while keeping the following steps in mind.
+
+\begin{enumerate}
+	\item Make sure your operating system version satisfies the requirements for the Docker ToolBox as outlined in the Step 1 of the Toolbox installation tutorial.
+	\item Check that virtualization is running using {\tt Specci} as described in the Toolbox installation tutorial. If not enabled, then the BIOS settings must be changed. For example, to change this setting on an HP Windows 10 Home, you should first shut down your computer. Secondly, you turn on your machine, while holding the {\tt esc} button and wait for the BIOS menu to appear. Then, select the {\tt F10} key for the BIOS configuration. Now you should be in BIOS settings, where you can use the arrow keys to navigate to the ``System configuration'' tab and select ``Virtual Technology'' entry. Push {\tt enter} and select ``Enabled.'' Finally, use {\tt F10} key to ``Save and Exit'' and reboot your computer. Please note that the specific keys and operations are most likely to be different on your machine.
+	\item After you start the Docker Toolbox Set Up Wizard, you will be guided through the installation process. When you get to the list of components to select, make sure that the ``VirtualBox''  and ``Git for Windows'' options are checked.
+	
+\end{enumerate}
+
+
+\subsection*{2. Configuring Git and GitHub}
 
 During the subsequent practical and  laboratory assignments, we will securely communicate
 with the GitHub servers that will host all of the project templates and your submitted deliverables. In this assignment,
@@ -41,14 +118,19 @@ sure how to proceed.
     username is taken, you should also pick your GitHub username to be the same as Allegheny's Google-based email
     account. 
   
-  \item Install \href{https://git-scm.com/downloads}{git} for the operating system of your laptop. We recommend you complete the following steps.
+  \item If you have not done so already in the previous section (1), install \href{https://git-scm.com/downloads}{Git} for the operating system of your laptop. Please note that if you installed Docker Toolbox and checked the ``Git for Windows'', you do not need to install Git again. Please see suggestions below relevant to your operating system.
   
   \textbf{For Windows:} 
+   We recommend you complete the following steps.
   \begin{itemize}
   	\item Open a terminal (command prompt) window in administrator mode. To do this, search for "cmd" in the start menu, then right-click and select ``Run as Administrator". 
   	\item Then, copy and paste the following command into that terminal, and hit enter.   
   	\begin{verbatim}
-  	$ @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+  	$ @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" 
+  	-NoProfile -InputFormat None -ExecutionPolicy Bypass -Command 
+  	"iex ((New-Object System.Net.WebClient).DownloadString
+  	('https://chocolatey.org/install.ps1'))" && 
+  	SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
   	\end{verbatim}
 	\item To test that this step was completed successfully, open a new terminal, and type the command \command{choco --version}. If 0.10.11 is printed (or some other higher version), you have completed this step. If not, ask for the instructor or a technical leader for assistance.
 	\item Run the following commands in a terminal window in administrator mode. \\
@@ -58,7 +140,14 @@ sure how to proceed.
 	If git version followed by some version number is printed (or something similar), you have completed this step.
 	\end{itemize}
 	
-	[TODO: add Mac and Linux instructions]
+  \textbf{For Mac:} In the terminal type: {\tt git --version}. If Git is not installed on your machine already, then you will be prompted to install it with the Git installer.
+  
+  \textbf{For Linux:} 
+  \begin{itemize}
+  	\item 
+  	Type and run the following command in the terminal: \\
+  	{\tt sudo apt-get install git}
+  \end{itemize}
 
   \item If you have never done so before, you must use the \command{ssh-keygen} program to create secure-shell keys that
     you can use to support your communication with GitHub. But, to start, this task requires you to type commands in a terminal. Open the terminal, a window in which you can type commands. which is called 
@@ -88,94 +177,18 @@ sure how to proceed.
 
 \end{enumerate}
 
-\vspace*{-.2in}
-\subsection*{Using a Container-based Platform, Docker}
-\vspace*{-.1in}
 
-Docker is a platform for developers and system administrators to develop, deploy, and run software applications with containers. [TODO: add more flowery language about Docker]
-%Docker is becoming a disruptive technology and revolutionizing the IT industry. 
+\subsection*{3. Text Editor for Programming}
+In this class we will use a text editor called, {\tt atom}, to write and edit software. Please go to \url{https://atom.io}. You should see a Download button specific to your operating system.
 
-The instructor in this course will deploy Docker containers with all the necessary software to run all class exercises, lab and practical assignments. Before using Docker, students must first complete the installations relevant to their operating system. 
 
-\begin{enumerate}
-	\item As the first step of the Docker set up process, please check and make a note of the version of your operating system. If your operating system meets the requirements outlined below, then proceed to the next step. For older MacOS and Windows Operating Systems, see the next section.
-	\item Then, go to \url{https://docs.docker.com/install/} and  from the menu on the left-hand side select and follow the installation tutorial for your operating system (Linux, MacOS, or Windows). Please see additional notes below before proceeding.
-	\item Once your installation is complete, please run {\tt > docker run hello-world} command in the terminal window. If you see an output similar to the one below, feel free to high five a technical leader - your installation was successful!
-
-\begin{verbatim}	
-docker run hello-world
-
-docker : Unable to find image 'hello-world:latest' locally
-...
-
-latest:
-Pulling from library/hello-world
-ca4f61b1923c:
-Pulling fs layer
-ca4f61b1923c:
-Download complete
-ca4f61b1923c:
-Pull complete
-Digest: sha256:97ce6fa4b6cdc0790cda65fe7290b74cfebd9fa0c9b8c38e979330d547d22ce1
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-...
-\end{verbatim}
-
-\end{enumerate}
-
-\begin{itemize}
-	\item Docker Desktop for Mac and Windows requires you to create an account to download. To bypass this, use the following download links:
-	\begin{itemize}
-		\item Windows: \url{ https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe}
-		\item Mac: \url{ https://download.docker.com/mac/stable/Docker.dmg}
-	\end{itemize}
-\end{itemize}
-	
-
-\subsubsection*{Older Mac and Windows systems}
-Older Mac and Windows operating systems that do not meet the requirements of Docker Desktop for Mac and Docker Desktop for Windows can use Docker Toolbox. You can follow the tutorial on \url{docs.docker.com/toolbox/toolbox_install_windows/}, while keeping the following steps in mind.
-
-\begin{enumerate}
-	\item Make sure your operating system version satisfies the requirements for the Docker Desktop.
-	\item Check that virtualization is running using Specci. If not enabled, then the BIOS settings must be changed. For example, to change this setting on an HP Windows 10 Home, you should first shut down your computer. Secondly, you turn on your machine, while holding the {\tt esc} button and wait for the BIOS menu to appear. Then, select the {\tt F10} key for the BIOS configuration. Now you should be in BIOS settings, where you can use the arrow keys to navigate to the ``System configuration'' tab and select ``Virtual Technology'' entry. Push {\tt enter} and select ``Enabled.'' Finally, use {\tt F10} key to ``Save and Exit'' and reboot your computer. Please note that the specific keys and operations maybe different on your machine.
-	\item During  the toolbox installation, there are several different items to select for installation. Make sure  that the (Oracle) VirtualBox option is checked.
-\end{enumerate}
-
-\vspace*{-.2in}
-\subsection*{Text Editor for Programming}
-\vspace*{-.1in}
-In this class we will use a text editor called, {\tt atom}, to write our programs. Please go to \url{https://atom.io}. You should see a Download button specific to your operating system.
-
-\omitit{
-\vspace*{-.2in}
-\subsection*{Navigating using the Command Line Interface}
-\vspace*{-.1in}
-A command-line interface allows the user to interact with the computer by typing in commands. Computing professionals prefer to use the command line interface, built into operating systems like Linux, instead of using the graphical user interface. In many situations command line interface tends to be very efficient and effective, for example, it allows you to complete some tasks with a simple one line command instead of using the ``pumping'' motion of the mouse!
-\vspace*{-.1in}
-\begin{enumerate}
-\item Read through the supplemental handout on ``Tips on Using Linux and the Command Line Interface''. Locate the terminal window and open it as explained in the reading handout. 
-\item Now you will practice using the commands discussed in the handout. Follow the handout to try the commands discussed  using the terminal window. Then, type each of the commands found in Table 1 of the supplemental handout. Make sure you understand what each command does. You will have to create new files in order to run some commands such as {\tt cp}, {\tt mv}, etc. The most basic method of creating a file is with the {\tt touch} command. This will create an empty file using the name specified: {\tt touch file1} or multiple files as: {\tt touch file1 file2}. 
-Remember to execute a command, you should press ``Enter'' after typing a command. Check with your neighbors to see if they are able to open the terminal window, and use commands such as {\tt cd, cp, pwd, ... , ls}, etc.
-\item After you finish practicing using the terminal commands delete all of the newly created files and directories from the previous practice step to avoid confusion in the future. 
-\item Now, if you have not done so in the previous step, create a directory  called {\tt cs100s2019}  in your home directory, by typing {\tt mkdir cs100s2018} command in your terminal.  This is where all of the work you do in this class should reside. 
-\item You can now close the terminal window by typing the {\tt exit} command. 
-\end{enumerate}
-}
-
+\subsection*{General Guidelines for Practical Sessions}
 
 \noindent Since this is your first  assignment and you are still learning how to use the appropriate software,
     don't become frustrated if you make a mistake. Instead, use your mistakes as an opportunity for learning both about
     the necessary technology and the background and expertise of the other students in the class, the teaching
     assistants, and the course instructor. Remember, you can use Slack to talk with the instructor by typing
     \command{@jjumadinova} in a channel.
- 
-
-%\vspace*{-.25in}
-\subsection*{General Guidelines for Practical Sessions}
-%\vspace*{-.05in}
 \begin{itemize}
 \item {\bf Experiment!} Practical sessions are for learning by doing without the pressure of grades or ``right/wrong''
   answers. So try things!  The best way to learn is by trying things out.
