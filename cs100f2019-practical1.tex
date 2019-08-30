@@ -16,7 +16,7 @@ To learn how to set up a container-based platform, called Docker, for use in all
 
 \subsection*{1. Using a Container-based Platform, Docker}
 
-Docker is a platform for developers and system administrators to develop, deploy, and run software applications with containers. Docker is a new generation of virtualisation and it is revolutionizing the IT industry. Using Docker software developers no longer need to worry about installations and software versions on various operating systems their product may need to run on. All the necessary software is packaged into a container and software applications are run in it. Companies, such as Visa and PayPal, and universities, such as Cornell and Indiana University, have adopted the Docker platform since it simplifies the process of building, running, managing and distributing software applications. 
+Docker is a platform for developers and system administrators to develop, deploy, and run software applications with containers. Docker is a new generation of virtualization and it is revolutionizing the IT industry. Using Docker software developers no longer need to worry about installations and software versions on various operating systems their product may need to run on. All the necessary software is packaged into a container and software applications are run in it. Companies, such as Visa and PayPal, and universities, such as Cornell and Indiana University, have adopted the Docker platform since it simplifies the process of building, running, managing and distributing software applications. 
 
 \noindent The Department of Computer Science has adopted Docker in all computer science courses. The instructor in this course will deploy Docker containers with all the necessary software to run all class exercises, lab and practical assignments. Students will then be able to work on developing programs on their own machines and run them using instructor-provided Docker container without having to install a dozen of software languages and tools. Before being able to use Docker, students must first complete basic installations of Docker and Git, which will be used for code distribution and submission. These installations are specific to the operating system of your machine. 
 
@@ -123,7 +123,7 @@ sure how to proceed.
   \textbf{For Windows:} 
    We recommend you complete the following steps.
   \begin{itemize}
-  	\item Open a terminal (command prompt) window in administrator mode. To do this, search for "cmd" in the start menu, then right-click and select ``Run as Administrator". 
+  	\item Open a terminal (command prompt) window in administrator mode. To do this, search for ``cmd" in the start menu, then right-click and select ``Run as Administrator". 
   	\item Then, copy and paste the following command into that terminal, and hit enter.   
   	\begin{verbatim}
   	$ @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" 
@@ -152,9 +152,8 @@ sure how to proceed.
   \item If you have never done so before, you must use the \command{ssh-keygen} program to create secure-shell keys that
     you can use to support your communication with GitHub. These keys enable you to send your files to GitHub without having to type in a password each time.  But, to start, this task requires you to type commands in a terminal. 
 
-  \item Open the terminal, a window in which you can type commands, and now type the \\
-  \command{ssh-keygen -t rsa -b 4096 -C "your\_email\_used\_to\_create_github_account@allegheny.edu"}
-   command in it. Follow
+  \item Open the terminal, a window in which you can type commands and type the command: \\
+  {\tt ssh-keygen -t rsa -b 4096 -C "your\_email\_used\_to\_create\_github\_account@allegheny.edu"}. Follow
     the prompts to create your keys and save them in the default directory. That is, you should press ``Enter'' after
     you are prompted to \command{Enter file in which to save the key ...  :} and then type your selected passphrase
     whenever you are prompted to do so. Please note that a ``passphrase'' is like a password that you will type when you
