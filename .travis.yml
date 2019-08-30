@@ -1,0 +1,16 @@
+before_install:
+- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends latexmk
+  texlive-fonts-extra texlive-fonts-recommended texlive-latex-base texlive-latex-extra
+  texlive-latex-recommended
+script:
+- mkdir _build
+- latexmk -pdf -outdir=_build cs100f2019-practical1.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: 
+  file:
+    - _build/cs100f2019-practical1.pdf
+  skip_cleanup: true
+  on:
+    tags: true
